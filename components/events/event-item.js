@@ -15,17 +15,20 @@ function EventItem({ title, image, date, location, id }) {
   return (
     <li className={classes.item}>
       <img src={'/' + image} alt={title} />
-      <div>
-        <h2>{title}</h2>
-        <div>
-          <time>{humanReadableFormat}</time>
+      <div className={classes.content}>
+        <div className={classes.summary}>
+          <h2>{title}</h2>
+          <div className={classes.date}>
+            <time>{humanReadableFormat}</time>
+          </div>
+          <div className={classes.address}>
+            <address>{formattedAddress}</address>
+          </div>
         </div>
-        <div>
-          <address>{formattedAddress}</address>
+
+        <div className={classes.actions}>
+          <Link href={exploreLink}>Explore Event</Link>
         </div>
-      </div>
-      <div>
-        <Link href={exploreLink}>Explore Event</Link>
       </div>
     </li>
   );
