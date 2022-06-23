@@ -9,7 +9,8 @@ function EventLogistics({ date, address, image, imageAlt }) {
     month: 'long',
     year: 'numeric',
   });
-  // const addressText = address.replace(', ', '\n');
+
+  const addressText = address.replace(', ', '\n');
 
   return (
     <section className={classes.logistics}>
@@ -21,7 +22,7 @@ function EventLogistics({ date, address, image, imageAlt }) {
           <time>{humanReadableDate}</time>
         </LogisticsItem>
         <LogisticsItem icon={AddressIcon}>
-          <address>{address}</address>
+          <address>{addressText}</address>
         </LogisticsItem>
       </ul>
     </section>
