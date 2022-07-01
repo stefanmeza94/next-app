@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import EventList from '../../components/events/event-list';
 import EventsSearch from '../../components/events/events-search';
 
-function AllEventsPage(props) {
+function AllEventsPage({ events }) {
   const router = useRouter();
 
   const findEventsHandler = (year, month) => {
@@ -15,7 +15,7 @@ function AllEventsPage(props) {
   return (
     <>
       <EventsSearch onSearch={findEventsHandler} />
-      <EventList items={props.events} />
+      <EventList items={events} />
     </>
   );
 }
@@ -27,6 +27,7 @@ export async function getStaticProps() {
     props: {
       events: events,
     },
+    revalidate: 60,
   };
 }
 
