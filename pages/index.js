@@ -16,9 +16,8 @@ export async function getStaticProps() {
     props: {
       events: featuredEvents,
     },
+    revalidate: 1800,
   };
 }
-
-// nastavi od 116 optimizing data fetching poglavlje 6
 
 export default HomePage;
